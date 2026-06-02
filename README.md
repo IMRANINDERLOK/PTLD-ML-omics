@@ -1,70 +1,109 @@
-# 🫁 Network-Guided Transcriptomics of Tuberculosis Disease-State Transition
+# 🧬 Network-Guided Transcriptomics of Tuberculosis Disease-State Transition
 
-## 🧬 Project Overview
+## 📌 Project Overview
 
-This repository contains a computational study focused on **post-tuberculosis lung disease (PTLD)**. The project uses transcriptomic data, machine learning, network biology, and drug-repurposing analysis to identify disease-relevant host-response signatures.
+This repository contains the computational resources for the study:
 
-The study is designed to connect PTLD-associated molecular changes with **druggable pathways**, **biomarkers**, and **candidate therapeutic targets**.
+**Network-guided transcriptomics identifies drug-linked host-response biomarkers in tuberculosis disease-state transition**
+
+The study focuses on identifying compact and interpretable host-response biomarkers that distinguish **active tuberculosis** from the **post-therapy state**. The analysis combines transcriptomic profiling, network-guided gene prioritization, external validation, machine learning classification, and drug-gene mapping.
 
 ## 🎯 Aim
 
-To identify targetable host-response signatures in post-tuberculosis lung disease using AI-guided transcriptomic analysis and network pharmacology.
+To identify robust, interpretable, and drug-linked host-response biomarkers associated with tuberculosis disease-state transition.
 
 ## ✅ Objectives
 
-* To collect and analyze public transcriptomic datasets related to PTLD, tuberculosis lung pathology, and lung remodelling.
+* To analyze blood transcriptomic changes between active tuberculosis before therapy and the 12-month post-therapy state.
 
-* To identify genes and pathways associated with persistent inflammation, fibrosis, immune dysregulation, and impaired lung repair after tuberculosis.
+* To identify differentially expressed genes associated with tuberculosis treatment transition.
 
-* To prioritize key host-response biomarkers using machine learning and network-based approaches.
+* To prioritize a compact biomarker panel using network-guided analysis.
 
-* To explore drug-gene and pathway-level interactions for identifying potential drug-repurposing candidates.
+* To validate the disease-state signature in an independent transcriptomic cohort.
 
-* To provide a reproducible computational resource for studying PTLD-related host-response mechanisms.
+* To evaluate the classification ability of prioritized biomarkers using machine learning models.
 
-## 🔬 Study Focus
+* To interpret key genes contributing to disease-state discrimination.
 
-This project focuses on the molecular mechanisms involved in long-term lung damage after tuberculosis treatment. Particular attention is given to immune activation, inflammatory signalling, extracellular matrix remodelling, fibrosis, epithelial injury, and tissue-repair pathways.
+* To explore drug-gene links for prioritized host-response biomarkers.
 
-The project aims to move beyond simple gene-expression analysis by linking disease-associated signatures with pharmacologically relevant targets.
+## 🧪 Study Design
 
-## 🧪 Data Sources
+The study compares two tuberculosis disease states:
 
-This study will use publicly available transcriptomic datasets related to:
+* **ATB_pre:** active tuberculosis before therapy
+* **ATB_12m:** post-therapy tuberculosis state at 12 months
 
-* Post-tuberculosis lung disease
-* Tuberculosis-associated lung pathology
-* Granuloma-associated gene expression
-* Lung fibrosis and tissue remodelling
+A discovery cohort was used to identify disease-state-associated genes, followed by independent validation to assess reproducibility and direction consistency.
 
-Datasets will be obtained from public repositories such as **GEO**, **ArrayExpress**, and other open-access biological data resources.
+## 🔬 Analysis Focus
 
-## 💊 Pharmacological Relevance
+This project focuses on host-response changes associated with tuberculosis treatment transition. The main biological signal identified in the study is linked to interferon-associated immune regulation, innate immune signalling, and inflammatory pathway modulation.
 
-PTLD remains a major clinical problem even after microbiological cure of tuberculosis. Persistent inflammation, fibrosis, and abnormal tissue repair may continue to affect lung function after treatment.
+The final biomarker panel highlights **STAT1** and **GBP1** as central and reproducible markers of active disease resolution after therapy.
 
-This project aims to identify molecular signatures that are not only biologically relevant but also pharmacologically targetable. By connecting transcriptomic changes with drug-gene interactions and network-level mechanisms, the study may support future drug-repurposing strategies for PTLD.
+## 🧠 Computational Methods
+
+The analysis includes:
+
+* Differential gene expression analysis
+* Network-guided biomarker prioritization
+* Independent cohort validation
+* Functional enrichment analysis
+* Machine learning-based classification
+* Feature-level model interpretation
+* Drug-gene interaction mapping
+
+## 📊 Key Findings
+
+* The discovery analysis identified **1,086 differentially expressed genes** between ATB_pre and ATB_12m.
+
+* External validation identified **320 overlapping genes** between discovery and validation cohorts.
+
+* Directional consistency between cohorts reached **95.9%**, supporting the robustness of the disease-state signature.
+
+* The final biomarker panel was dominated by interferon-associated genes.
+
+* **STAT1** and **GBP1** emerged as the most stable and central biomarkers.
+
+* Random Forest and support vector machine models achieved strong classification performance, with **AUC = 0.969**.
+
+* Drug-gene mapping linked prioritized biomarkers with compounds such as **tretinoin** and **valproic acid**.
+
+## 🧩 Biological Interpretation
+
+The identified transcriptional signature reflects a reduction in active tuberculosis-associated immune activation after therapy. The dominance of interferon-linked genes suggests that active disease is characterized by strong innate and inflammatory host-response activity, which decreases after treatment.
+
+The consistent reduction of **STAT1** and **GBP1** after therapy supports their value as compact and interpretable markers of tuberculosis disease-state transition.
+
+## 💊 Drug-Linked Interpretation
+
+Drug-gene mapping was used to explore whether prioritized biomarkers are connected to known pharmacological agents. This analysis linked key host-response genes with compounds such as **tretinoin** and **valproic acid**, placing the biomarker panel within a drug-linked framework.
+
+These results should be interpreted as computational and hypothesis-generating, not as direct therapeutic evidence.
 
 ## 🛠️ Tools and Platforms
 
-This project may use:
+This project may include analysis using:
 
 * R / RStudio
 * Python / Google Colab
-* Seurat / Scanpy
-* DESeq2 / limma
+* GEOquery
+* limma
+* ggplot2
+* pheatmap / ComplexHeatmap
 * STRING
 * Cytoscape
 * Enrichr / g:Profiler
-* DGIdb / CTD / DrugBank
-* LINCS / CMap
+* DGIdb / CTD / DrugShot
 * Scikit-learn
-* SHAP
+* SHAP or feature-importance analysis
 
 ## 📁 Repository Structure
 
 ```text
-PTLD-VirtualCell-DrugDiscovery/
+TB-DiseaseState-NetworkTranscriptomics/
 │
 ├── data/
 │   ├── raw/
@@ -73,9 +112,10 @@ PTLD-VirtualCell-DrugDiscovery/
 ├── scripts/
 │   ├── preprocessing/
 │   ├── differential_expression/
-│   ├── machine_learning/
+│   ├── validation/
 │   ├── network_analysis/
-│   └── drug_repurposing/
+│   ├── machine_learning/
+│   └── drug_gene_mapping/
 │
 ├── results/
 │   ├── figures/
@@ -98,4 +138,4 @@ This repository is intended for academic and research use. A suitable open-sourc
 
 ## 🤝 Citation
 
-If you use this repository or any part of the workflow, please cite the related publication once available.
+If you use this repository, workflow, or related results, please cite the associated publication once available.
