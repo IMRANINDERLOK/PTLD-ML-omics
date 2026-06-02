@@ -1,0 +1,2 @@
+"Comparison","Dataset","N_ATB_pre","N_ATB_12m","Total_Probes","Significant_DEGs","Up_in_ATB_12m","Down_in_ATB_12m","AdjP_threshold","LogFC_threshold"
+"ATB_12m_vs_ATB_pre","GSE19435",7,7,48803,2875,2091,784,0.05,1
