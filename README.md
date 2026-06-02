@@ -1,4 +1,4 @@
-# 🫁 PTLD Virtual Cell Drug Discovery
+# 🫁 Network-Guided Transcriptomics of Tuberculosis Disease-State Transition
 
 ## 🧬 Project Overview
 
